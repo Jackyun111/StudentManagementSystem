@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<action-mappings>
+
+	<!-- 用户登录 -->
+  <action path="/sysuser/login" type="com.zte.sms.action.SysuserAction"  method="login"> 
+      <result name="admin"  path="/student/findAll.do"/>
+      <result name="student"  path="/WEB-INF/pages/studentPage/studentMain.jsp"/>
+      <result name="fail"  path="/login.jsp" type=""/>
+  </action>
+  
+  	<!-- 管理员登录后页面 -->
+  	<action path="/student/findAll" type="com.zte.sms.action.StudentAction" method="findStudents">
+  		<result name="adminMain" path="/WEB-INF/pages/adminPage/adminMain1.jsp" />
+  		
+  	</action>
+
+	<!-- ajax分页 -->
+	<action path="/student/findAllByPage" type="com.zte.sms.action.StudentAction" method="findStudentsByPage">
+		<result type="json" />
+	
+	</action>
+	
+	<!-- ajax修改管理员密码 -->
+	<action	path="/sysuser/modifyPwd" type="com.zte.sms.action.SysuserAction" method="modifyPwd">
+		<result type="json"/>
+	</action>
+	
+	<!-- 退出当前系统 -->
+	<action path="/sysuser/logOut" type="com.zte.sms.action.SysuserAction" method="logOut">
+		<result type="json"/>
+	</action>
+	
+	<!-- 学生管理页面 -->
+	<action path="/student/studentManage" type="com.zte.sms.action.StudentAction" method="toStudentManage">
+		<result name="toStudentManage" path="/WEB-INF/pages/adminPage/studentManage.jsp"/>
+	</action>
+	
+	<!-- 班级管理页面 -->
+	<action path="/grade/gradeManage" type="com.zte.sms.action.GradeAction" method="toGradeManage">
+		<result name="toGradeManage" path="/WEB-INF/pages/adminPage/gradeManage.jsp"/>
+	</action>
+	
+	<!-- ajax分页获取班级详情 -->
+	<action path="/grade/findAllByPage" type="com.zte.sms.action.GradeAction" method="findAllByPage">
+		<result type="json"/>
+	</action>
+	
+	
+	<!-- 课程管理页面 -->
+	<action path="/course/courseManage" type="com.zte.sms.action.CourseAction" method="toCourseManage" >
+		<result name="toCourseManage" path="/WEB-INF/pages/adminPage/courseManage.jsp"/>
+	</action>
+	
+	<!-- ajax分页获取课程详情 -->
+	<action path="/course/findAllByPage" type="com.zte.sms.action.CourseAction" method="findAllByPage">
+		<result type="json"/>
+	</action>
+	
+	<!-- 日志管理页面 -->
+	<action path="/blog/blogManage" type="com.zte.sms.action.BlogAction" method="toBlogManage" >
+		<result name="toBlogManage" path="/WEB-INF/pages/adminPage/blogManage.jsp"/>
+	</action>
+	
+	
+</action-mappings>
+
+
+
+
+
+
+
+
+
